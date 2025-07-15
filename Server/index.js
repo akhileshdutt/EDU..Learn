@@ -2,18 +2,18 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
+import userRoutes from "./Routes/userRoutes.js";
 
 // Routes
-import userRoutes from "./Routes/userRoutes.js";
 
 
 dotenv.config();
 const app = express();
 
-console.log(process.env.JWT_SECRET)
+const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 
 // Routes
@@ -23,12 +23,12 @@ app.use("/api/users", userRoutes);
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log("MongoDB connected");
-    app.listen(process.env.PORT || 5000, () => {
-      console.log(`Server running on port ${process.env.PORT}`);
+    console.log("✅ MongoDB connected");
+    app.listen(PORT, () => {
+      console.log(`✅ Server running on port ${PORT}`);
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => console.log("❌ MongoDB error:", err));
 
 
   console.log("JWT_SECRET =>", process.env.JWT_SECRET);

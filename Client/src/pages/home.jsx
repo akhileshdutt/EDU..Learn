@@ -28,7 +28,7 @@ const Home = () => {
 
        <header className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-6 text-white w-full">
         <div className=" flex justify-between items-center sm:px-5">
-          <h1 className="text-4xl text-center text-gray-50 py-4 font-serif ">EDU..Learn📝</h1>
+          <h1 className="text-4xl text-center text-gray-50 py-4 font-serif ">EDU.learn📝</h1>
           <div className="space-x-4">
             <Link to ="/login">
             <button className="bg-white text-indigo-600 font-semibold px-4 py-2 rounded hover:bg-gray-100 transition">Login</button>
