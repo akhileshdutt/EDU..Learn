@@ -2,10 +2,6 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: [true, 'Please enter your name'],
-    },
     email: {
       type: String,
       required: [true, 'Please enter your email'],
@@ -14,12 +10,7 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, 'Please enter a password'],
-    },
-    role: {
-      type: String,
-      enum: ['student', 'instructor', 'admin'],
-      default: 'student',
-    },
+    }
   },
   {
     timestamps: true,

@@ -5,7 +5,7 @@ import User from '../Models/userModel.js';
 // Register User
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { email, password } = req.body;
 
     // Check if user already exists
     const userExists = await User.findOne({ email });
@@ -17,10 +17,8 @@ export const registerUser = async (req, res) => {
 
     // Create user
     const user = await User.create({
-      name,
       email,
-      password: hashedPassword,
-      role
+      password: hashedPassword
     });
 
     // Generate token
