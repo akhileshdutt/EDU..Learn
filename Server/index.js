@@ -19,6 +19,7 @@ app.use(express.json()); // to parse JSON bodies
 // ✅ Routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api', userRoutes); 
 
 
 

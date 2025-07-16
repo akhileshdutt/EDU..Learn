@@ -43,6 +43,12 @@ const Home = () => {
           <h1 className="text-4xl text-center text-gray-50 py-2 font-serif">EDU.learn📝</h1>
           <div className="space-x-4">
             <button
+              onClick={() => navigate('/myEnrolled')}
+              className="bg-white text-indigo-600 font-semibold px-4 py-2 rounded hover:bg-gray-100 transition"
+            >
+              Enrolled Courses
+            </button>
+            <button
               onClick={handleLogout}
               className="bg-white text-red-600 font-semibold px-4 py-2 rounded hover:bg-gray-100 transition"
             >
@@ -62,9 +68,11 @@ const Home = () => {
               <div className="p-5">
                 <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
                 <p className="text-gray-600 mb-4">{course.description}</p>
+                <Link to = {`/enroll/${index}`}>
                 <button className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold py-2 px-4 rounded hover:opacity-90 transition">
                   Enroll Now
                 </button>
+                </Link>
               </div>
             </div>
           ))}
